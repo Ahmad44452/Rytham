@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledInput = styled.input`
   display: ${({ display }) => display || 'block'};
-  margin: ${({ margin }) => margin || 'auto'};
+  margin: ${({ margin }) => margin || 'inital'};
   font-size: ${({ fontSize }) => fontSize || '1.8rem'};
   padding: ${({ padding }) => padding || '1.2rem'};
   border-radius: ${({ borderRadius }) => borderRadius || '2px'};
@@ -22,7 +22,7 @@ export const StyledButtonRound = styled.button`
   cursor: pointer;
   transition: all .3s;
   background-color: ${({ backgroundColor }) => backgroundColor || 'auto'};
-  margin: ${({ margin }) => margin || 'auto'};
+  margin: ${({ margin }) => margin || 'inital'};
   padding: ${({ padding }) => padding || '1rem 4rem'};
   border-radius: ${({ borderRadius }) => borderRadius || '999px'};
   font-weight: ${({ fontWeight }) => fontWeight || '600'};

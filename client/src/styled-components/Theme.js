@@ -4,7 +4,8 @@ const theme = {
   colors: {
     main: '#161616',
     secondary: '#E3DEDE',
-    logoRed: "#e9003f"
+    logoRed: "#E9003F",
+    white: '#fff'
   },
   fontSizes: {
     small: "1.6rem",

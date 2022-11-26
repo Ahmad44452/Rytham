@@ -43,11 +43,11 @@ oracledb.autoCommit = true;
 app.post('/api/adminLogin', async (req, res) => {
 
   try {
-    const password = await connection.execute(
-      `SELECT password FROM admin where adminEmail='${req.body.email}'`
+    const user = await connection.execute(
+      `SELECT * FROM admin where adminEmail='${req.body.email}'`
     );
-    if (password.rows[0].PASSWORD === req.body.password) {
-      return res.status(200).json({ auth: true });
+    if (user.rows[0].PASSWORD === req.body.password) {
+      return res.status(200).json({ name: user.rows[0].ADMINNAME, email: user.rows[0].ADMINEMAIL });
     } else {
       return res.status(400).json({ message: 'Wrong credentials' });
     }

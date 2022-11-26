@@ -1,6 +1,5 @@
 import axios from "axios";
 import { setAdminData, signOutAdmin } from "../slices/adminSlice";
-import serverUrl from './serverUrl';
 
 axios.defaults.headers.post['Content-Type'] = "application/json";
 
@@ -9,7 +8,7 @@ export const loginAdminApi = (email, password) => {
     try {
 
       const user = await axios.post(`/api/adminLogin`, { email, password });
-      console.log(user.data);
+
       await dispatch(setAdminData(user.data));
 
     } catch (error) {

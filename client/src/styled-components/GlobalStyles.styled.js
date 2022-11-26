@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
   *,*::before,*::after{
@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
   html{
     font-size: 62.5%;
     font-family: 'Open Sans',sans-serif;
+    background-color: #fafafa;
   }
 `;
 
