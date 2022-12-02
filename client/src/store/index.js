@@ -1,10 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import adminReducer from "./slices/adminSlice";
-// import numbersReducer from "./slices/numbersSlice";
+import artistsReducer from './slices/artistSlice';
+import albumsReducer from "./slices/albumSlice";
+import songsReducer from './slices/songSlice';
 
 export const store = configureStore({
   reducer: {
-    adminReducer
+    adminReducer,
+    artistsReducer,
+    albumsReducer,
+    songsReducer
   }
 })

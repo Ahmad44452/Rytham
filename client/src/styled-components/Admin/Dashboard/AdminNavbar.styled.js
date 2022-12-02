@@ -6,7 +6,6 @@ export const AdminNavbarStyled = styled.nav`
   justify-content: center;
   overflow: hidden;
   background-color: #fff;
-  
 `;
 
 export const AdminNavbarContainerStyled = styled.div`

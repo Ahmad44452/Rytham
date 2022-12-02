@@ -5,6 +5,7 @@ const AdminNavbarHOC = (SectionComponent) => () => {
   return (
     <>
       <AdminNavbar />
+
       <SectionComponent />
     </>
   )

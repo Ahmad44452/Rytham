@@ -1,7 +1,8 @@
 // STYLED COMPONENTS START
 import { useTheme } from "styled-components";
 import {
-  RythamLogo
+  RythamLogo,
+  AdminLoginError
 } from "../../../styled-components/Admin/Login.styled";
 import {
   StyledContainer,
@@ -59,9 +60,16 @@ const AdminLogin = () => {
 
         <form onSubmit={formik.handleSubmit}>
           <StyledInput type={"email"} placeholder="Email" width={'35rem'} margin='0 0 2rem 0' {...formik.getFieldProps('email')} />
-          <StyledInput type={"password"} placeholder="Password" width={'35rem'} {...formik.getFieldProps('password')} />
+          <StyledInput type={"password"} placeholder="Password" width={'35rem'} margin='0 0 2rem 0' {...formik.getFieldProps('password')} />
+          <AdminLoginError display={(formik.touched.email && formik.errors.email) || (formik.touched.password && formik.errors.password) || (adminReducer.loginError) ? 'block' : 'none'}>
+            {
+              (formik.touched.email && formik.errors.email ? formik.errors.email : null) ||
+              (formik.touched.password && formik.errors.password ? formik.errors.password : null) ||
+              (adminReducer.loginError)
+            }
+          </AdminLoginError>
           <StyledButtonRound type="submit"
-            color={styledTheme.colors.main} backgroundColor={styledTheme.colors.logoRed} margin='4rem 0 0 0' hoverShadow={`0 1rem 2rem rgb(233 0 63 / 10%)`}
+            color={styledTheme.colors.main} backgroundColor={styledTheme.colors.logoRed} margin='2rem 0 0 0' hoverShadow={`0 1rem 2rem rgb(233 0 63 / 10%)`}
             activeShadow={`0 0.5rem 1rem rgb(233 0 63 / 10%)`}
           >
             Login

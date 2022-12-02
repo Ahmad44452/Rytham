@@ -58,6 +58,149 @@ app.post('/api/adminLogin', async (req, res) => {
   }
 });
 
+
+app.get('/api/getArists', async (req, res) => {
+
+  try {
+    const artists = await connection.execute(
+      `SELECT * FROM artists`
+    );
+
+    return res.status(200).json(artists.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+
+app.post('/api/addArtist', async (req, res) => {
+
+  try {
+    const artist = await connection.execute(
+      `insert into ARTISTS (artistName,artistArtwork) values('${req.body.artistName}','${req.body.artistArtwork}')`
+    );
+
+    return res.status(200).json(artist.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.post('/api/deleteArtist', async (req, res) => {
+
+  try {
+
+    const artist = await connection.execute(
+      `DELETE FROM ARTISTS WHERE ARTISTID='${req.body.artistId}'`
+    );
+
+    return res.status(200).json(artist.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.get('/api/getAlbums', async (req, res) => {
+
+  try {
+    const albums = await connection.execute(
+      `SELECT al.albumid, al.albumName, al.albumArtwork, ar.artistName FROM albums al JOIN artists ar ON al.artistId=ar.artistId`
+    );
+
+    return res.status(200).json(albums.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.post('/api/addAlbum', async (req, res) => {
+
+  try {
+    const artist = await connection.execute(
+      `insert into ALBUMS (albumName,artistId,albumArtwork) values('${req.body.albumName}','${req.body.artistId}','${req.body.albumArtwork}')`
+    );
+
+    return res.status(200).json(artist.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.post('/api/deleteAlbum', async (req, res) => {
+
+  try {
+
+    const artist = await connection.execute(
+      `DELETE FROM ALBUMS WHERE ALBUMID='${req.body.albumId}'`
+    );
+
+    return res.status(200).json(artist.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.get('/api/getSongs', async (req, res) => {
+  try {
+    const songs = await connection.execute(
+      `SELECT s.songid, s.songName, s.songLink, s.albumId, al.albumName, ar.artistName
+      FROM songs s
+      JOIN albums al ON s.albumId=al.albumId
+      JOIN artists ar ON al.artistId=ar.artistId
+      `
+    );
+
+    return res.status(200).json(songs.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.post('/api/addSong', async (req, res) => {
+  try {
+
+    const song = await connection.execute(
+      `insert into SONGS (songName,albumId,songLink) values(q'[${req.body.songName}]','${req.body.albumId}','${req.body.songLink}')`
+    );
+
+    return res.status(200).json(song.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
+app.post('/api/deleteSong', async (req, res) => {
+
+  try {
+
+    const song = await connection.execute(
+      `DELETE FROM SONGS WHERE SONGID='${req.body.songId}'`
+    );
+
+    return res.status(200).json(song.rows);
+
+  } catch (err) {
+    console.error(err);
+    return res.status(400).json(err);
+  }
+});
+
 app.get('/hi', async (req, res) => {
   try {
     res.json({ 'name': 'ahmad' })
