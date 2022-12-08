@@ -12,6 +12,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Open Sans',sans-serif;
     background-color: #fafafa;
   }
+
 `;
 
 export default GlobalStyles;

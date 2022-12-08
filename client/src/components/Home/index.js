@@ -1,7 +1,27 @@
-const Home = () => {
+import Player from "./Player";
+import HomeNavbar from "./Navbar";
+import { StyledHome, StyledHomeTop, StyledHomeBottom } from "../../styled-components/Home/Home.Styled";
+
+const HomeLayout = (MainHomeComponent) => () => {
+
+
   return (
-    <h1>HOME</h1>
+    <>
+      <StyledHome>
+        <HomeNavbar />
+        <StyledHomeTop>
+
+          <MainHomeComponent />
+
+        </StyledHomeTop>
+        <StyledHomeBottom>
+          <Player />
+        </StyledHomeBottom>
+      </StyledHome>
+
+
+    </>
   )
 }
 
-export default Home;
+export default HomeLayout;

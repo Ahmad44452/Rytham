@@ -9,8 +9,9 @@ import AdminLogin from './components/Admin/Login';
 import AdminDashboardAlbums from './components/Admin/Dashboard/Albums';
 import AdminDashboardArtists from './components/Admin/Dashboard/Artists';
 import AdminDashboardSongs from './components/Admin/Dashboard/Songs';
+import NotFound from './components/404';
 
-import Home from './components/Home';
+import HomeDefault from './components/Home/HomeDefault';
 import { useEffect } from 'react';
 
 const AppRoutes = () => {
@@ -26,12 +27,12 @@ const AppRoutes = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<HomeDefault />} />
         <Route path='/adminlogin' element={<AdminLogin />} />
         <Route path='/admindashboard/albums' element={<AdminDashboardAlbums />} />
         <Route path='/admindashboard/artists' element={<AdminDashboardArtists />} />
         <Route path='/admindashboard/songs' element={<AdminDashboardSongs />} />
-
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

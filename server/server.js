@@ -155,7 +155,7 @@ app.post('/api/deleteAlbum', async (req, res) => {
 app.get('/api/getSongs', async (req, res) => {
   try {
     const songs = await connection.execute(
-      `SELECT s.songid, s.songName, s.songLink, s.albumId, al.albumName, ar.artistName
+      `SELECT s.songid, s.songName, s.songLink, s.albumId, al.albumName, al.albumArtwork, ar.artistName
       FROM songs s
       JOIN albums al ON s.albumId=al.albumId
       JOIN artists ar ON al.artistId=ar.artistId
