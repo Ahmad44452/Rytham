@@ -39,7 +39,6 @@ const Player = () => {
     } else if (playerReducer.isSongPlaying === true) {
       audioRef.current.play();
     }
-    console.log('hi');
 
     if (audioRef.current) {
       audioRef.current.onended = () => {

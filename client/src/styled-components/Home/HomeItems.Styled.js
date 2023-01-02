@@ -73,6 +73,8 @@ export const StyledItemsItem = styled(Link)`
   padding: 1.5rem 1.7rem;
   background-color: #181818;
   border-radius: 5px;
+  max-width: 234px;
+  
   &:link,&:visited{
     text-decoration: none;
     color: ${({ theme: { colors } }) => colors.themeWhite};

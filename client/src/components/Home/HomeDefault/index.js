@@ -27,12 +27,12 @@ const HomeDefault = () => {
       <StyledItems>
         <StyledItemsHeader>
           <StyledItemsHeading>Albums</StyledItemsHeading>
-          <StyledItemsBrowseAll>Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
+          <StyledItemsBrowseAll to={'/albums'} >Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
         </StyledItemsHeader>
         <StyledItemsContainer>
           {
             albums ? albums.map(item => (
-              <StyledItemsItem key={item.ALBUMID}>
+              <StyledItemsItem key={item.ALBUMID} to={`/albums/${item.ALBUMID}`}>
                 <StyledItemsImageWrapper>
                   <img src={item.ALBUMARTWORK} alt={`${item.ALBUMNAME} Artwork`} />
                   <img src={item.ALBUMARTWORK} alt={`${item.ALBUMNAME} Artwork`} />
@@ -49,12 +49,12 @@ const HomeDefault = () => {
       <StyledItems>
         <StyledItemsHeader>
           <StyledItemsHeading>Artists</StyledItemsHeading>
-          <StyledItemsBrowseAll>Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
+          <StyledItemsBrowseAll to={'/artists'}>Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
         </StyledItemsHeader>
         <StyledItemsContainer>
           {
             artists ? artists.map(item => (
-              <StyledItemsItem key={item.ARTISTID}>
+              <StyledItemsItem key={item.ARTISTID} to={`/artists/${item.ARTISTID}`}>
                 <StyledItemsImageWrapper>
                   <img src={item.ARTISTARTWORK} alt={`${item.ARTISTNAME} Artwork`} />
                   <img src={item.ARTISTARTWORK} alt={`${item.ARTISTNAME} Artwork`} />
@@ -70,7 +70,7 @@ const HomeDefault = () => {
       <StyledItems>
         <StyledItemsHeader>
           <StyledItemsHeading>Songs</StyledItemsHeading>
-          <StyledItemsBrowseAll>Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
+          <StyledItemsBrowseAll to={'/songs'}>Browse All<AiOutlineArrowRight /></StyledItemsBrowseAll>
         </StyledItemsHeader>
         <StyledItemsContainer>
           {
